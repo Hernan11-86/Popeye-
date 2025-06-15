@@ -1,0 +1,238 @@
+/*
+ * CSS ESPECÍFICO PARA LA PÁGINA DE SEÑUELOS (senuelos.html)
+ * Este archivo complementa el style.css principal, que maneja el header, overlay, etc.
+ */
+
+/* Estilos para el título de la página de categoría */
+.page-title-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.page-title-section h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+/* Encabezado de la cuadrícula de productos (para filtros y orden) */
+.products-header {
+    display: flex;
+    justify-content: flex-end; /* Alinear "Orden predeterminado" a la derecha */
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.product-sort label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.product-sort select {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    background-color: #f8f9fa;
+}
+
+/* Cuadrícula de productos */
+.product-grid {
+    display: grid;
+    /* Ajusta minmax para controlar cuántas columnas aparecen */
+    /* En pantallas grandes (por ejemplo, >992px), tendrás 3 columnas por fila. */
+    /* En pantallas medianas (por ejemplo, entre 768px y 992px), serán 2 columnas. */
+    /* En pantallas pequeñas (<768px), será 1 columna. */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px; /* Espacio entre los productos */
+    max-width: 1200px;
+    margin: 0 auto 40px auto; /* Centrar y añadir margen inferior */
+    padding: 0 20px; /* Padding a los lados */
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Asegura que la imagen no se salga */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative; /* Para el badge de oferta, si lo añades más tarde */
+    transition: transform 0.2s ease-in-out;
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Pequeño efecto al pasar el ratón */
+}
+
+/* Si quieres un badge de oferta, puedes usar esta clase */
+/*
+.product-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ffc107;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    z-index: 10;
+}
+*/
+
+.product-card img {
+    width: 100%;
+    max-height: 200px; /* Ajusta la altura de la imagen si es necesario */
+    object-fit: contain; /* Asegura que la imagen se vea completa dentro del contenedor */
+    padding: 15px; /* Espaciado alrededor de la imagen */
+}
+
+.product-info {
+    padding: 15px;
+    width: 100%;
+    flex-grow: 1; /* Permite que la info ocupe el espacio restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacia el contenido dentro de la info */
+}
+
+.product-info h3 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 10px;
+    height: 3.5em; /* Altura fija para el título en 2-3 líneas para consistencia */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Muestra hasta 3 líneas del título */
+    -webkit-box-orient: vertical;
+}
+
+.product-info .product-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+    height: 3em; /* Altura fija para 2 líneas de descripción */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Muestra hasta 2 líneas de descripción */
+    -webkit-box-orient: vertical;
+}
+
+/* Si usas precio viejo tachado y precio de transferencia */
+.product-info .old-price {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.product-info .current-price {
+    color: #dc3545; /* Rojo */
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.product-info .transfer-price {
+    color: #28a745; /* Verde */
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.select-options,
+.add-to-cart {
+    background-color: #007bff; /* Azul */
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 90%; /* Ocupar casi todo el ancho de la tarjeta */
+    margin-top: auto; /* Empuja el botón hacia la parte inferior del product-info */
+}
+
+.select-options:hover,
+.add-to-cart:hover {
+    background-color: #0056b3;
+}
+
+/* Media Queries para Responsive (solo para esta sección de productos) */
+@media (max-width: 768px) {
+    .page-title-section {
+        padding: 30px 15px;
+    }
+
+    .page-title-section h1 {
+        font-size: 2rem;
+    }
+
+    .products-header {
+        flex-direction: column; /* Apilar filtros/orden verticalmente */
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .product-sort {
+        width: 100%;
+        text-align: left;
+        margin-top: 15px; /* Espacio si hay filtros encima */
+    }
+
+    .product-sort label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .product-sort select {
+        width: 100%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste para móvil */
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .product-card {
+        margin-bottom: 15px; /* Espacio extra entre tarjetas */
+    }
+
+    .product-info h3 {
+        font-size: 1rem;
+        height: auto; /* Permitir altura automática en móviles si no te gusta el límite de líneas */
+        -webkit-line-clamp: unset; /* Desactivar el límite de líneas */
+    }
+
+    .product-info .product-description {
+        height: auto; /* Permitir altura automática */
+        -webkit-line-clamp: unset; /* Desactivar límite de líneas */
+    }
+
+    .product-info .current-price {
+        font-size: 1.2rem;
+    }
+
+    .select-options,
+    .add-to-cart {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}

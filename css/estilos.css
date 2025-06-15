@@ -1,0 +1,714 @@
+/* Basic Reset & Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Overlay para oscurecer el fondo cuando el menú está abierto */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.overlay.visible {
+    opacity: 1;
+    display: block;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Header Styles */
+.main-header {
+    background-color: #dc3545; /* Rojo */
+    color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+}
+
+.logo img {
+    height: 50px;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    flex-grow: 1;
+    margin: 0 20px;
+    max-width: 500px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-bar button {
+    background-color: #f8f9fa;
+    color: #dc3545;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #e2e6ea;
+}
+
+/* Navigation (Desktop) */
+
+
+.main-nav .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav .nav-links > li {
+    margin-left: 20px;
+    position: relative;
+}
+
+.main-nav .nav-links .nav-link-item {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+    display: block;
+}
+
+.main-nav .nav-links .nav-link-item:hover {
+    color: #f8f9fa;
+}
+
+/* Submenú */
+.submenu {
+    list-style: none;
+    display: none;
+    position: absolute;
+    background-color: #dc3545;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1001;
+    padding: 10px 0;
+    border-radius: 5px;
+    top: 100%;
+    left: 0;
+}
+
+.submenu.open {
+    display: block;
+}
+
+.submenu li a {
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: background-color 0.2s ease;
+}
+
+.submenu li a:hover {
+    background-color: #b02a37;
+}
+
+.arrow-down {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.nav-link-item.active .arrow-down {
+    transform: rotate(180deg);
+}
+
+.nav-link-item.active {
+    color: #000 !important;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    order: 3;
+}
+
+.cart-icon {
+    position: relative;
+    font-size: 1.5rem;
+    margin-left: 20px;
+    order: 4;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #ffc107;
+    color: #333;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+}
+
+/* Hero Section (Home page specific) */
+.hero-section {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background-color: #333;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(60%);
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 2rem;
+    z-index: 2;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.arrow:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.left-arrow {
+    left: 20px;
+}
+
+.right-arrow {
+    right: 20px;
+}
+
+/* Info Section (Common to multiple pages) */
+.info-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    flex-wrap: wrap;
+}
+
+.info-card {
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 45%;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.info-card i {
+    font-size: 2.5rem;
+    color: #dc3545;
+    margin-bottom: 15px;
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.info-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* --- Footer Styles --- */
+.main-footer {
+    background-color: #1a1a1a; /* Color de fondo oscuro como en la imagen */
+    color: #f0f0f0; /* Color de texto claro */
+    padding: 40px 20px 20px; /* Padding superior, lateral y inferior */
+    font-size: 0.95rem;
+}
+
+.footer-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Permite que las columnas se envuelvan si no hay suficiente espacio */
+    gap: 30px; /* Espacio entre las columnas del footer */
+}
+
+.footer-brand {
+    flex: 1; /* Permite que ocupe espacio y crezca */
+    min-width: 280px; /* Ancho mínimo para la columna de marca */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea los ítems a la izquierda */
+    margin-bottom: 20px; /* Espacio inferior en móvil */
+}
+
+.footer-logo img {
+    max-width: 120px; /* Tamaño del logo en el footer */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.footer-brand p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #bbb;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #dc3545; /* Rojo para los iconos */
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #b02a37; /* Rojo más oscuro al pasar el ratón */
+}
+
+.footer-links-group {
+    display: flex;
+    /* Flex-grow y flex-shrink para que ocupe el espacio restante */
+    flex-grow: 2; /* Puedes ajustar este valor si quieres que ocupe más o menos espacio relativo a la marca */
+    flex-shrink: 1;
+    flex-basis: auto; /* IMPORTANTE: Dejar que el contenido defina el tamaño inicial */
+    justify-content: flex-start; /* Alinea al inicio, para que las categorías queden más juntas */
+    flex-wrap: wrap; /* Permitir que las columnas de enlaces se envuelvan */
+    /* Eliminar min-width aquí, o poner uno muy bajo, para que no fuerce el salto */
+    /* min-width: 400px; */ /* Si lo dejas muy alto, fuerza el salto */
+}
+
+.footer-links-col {
+    /* Aquí es donde controlamos el ancho de cada columna de enlaces */
+    flex: 0 0 auto; /* No crecer, no encoger, tamaño basado en el contenido */
+    min-width: 180px; /* Ancho mínimo para cada columna individual */
+    margin-bottom: 20px;
+    /* Margin right para crear un pequeño espacio entre las columnas de categorías */
+    margin-right: 30px; /* Espacio entre columnas */
+}
+
+.footer-links-col:last-child {
+    margin-right: 0; /* Eliminar margen derecho de la última columna para que no se desborde */
+}
+
+
+.footer-links-col h3 {
+    color: #dc3545; /* Títulos en rojo */
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.footer-links-col h3::after { /* Línea debajo de los títulos */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #f0f0f0;
+}
+
+.footer-links-col ul {
+    list-style: none;
+}
+
+.footer-links-col ul li {
+    margin-bottom: 8px;
+    display: flex; /* Para el icono de flecha */
+    align-items: center;
+}
+
+.footer-links-col ul li a {
+    color: #bbb; /* Color de los enlaces */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.footer-links-col ul li a:hover {
+    color: #fff; /* Color blanco al pasar el ratón */
+}
+
+/* Iconos de flecha para los enlaces */
+.footer-links-col ul li a::before {
+    content: '\f105'; /* Código Unicode para Font Awesome fa-chevron-right */
+    font-family: 'Font Awesome 5 Free'; /* Asegúrate de que Font Awesome esté cargado */
+    font-weight: 900; /* Necesario para los iconos sólidos de Font Awesome 5 */
+    margin-right: 8px;
+    color: #dc3545; /* Color rojo de la flecha */
+    font-size: 0.8rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+/* Responsive Design */
+
+/* Small screens (e.g., mobile) */
+@media (max-width: 768px) {
+    .header-content {
+        flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 10px; /* Reduce un poco el padding del header en móvil */
+    }
+
+    .logo {
+        order: 1; /* Logo a la izquierda */
+        flex-shrink: 0; /* Evita que el logo se haga más pequeño */
+        margin-right: 5px;
+    }
+
+    .logo img {
+        height: 40px; /* Reducir el tamaño del logo en móvil para ahorrar espacio */
+    }
+
+    .search-bar {
+        order: 3; /* El buscador debajo del logo y carrito */
+        flex-grow: 1; /* Permite que el buscador ocupe el espacio disponible */
+        flex-basis: 100%; /* Ocupa todo el ancho disponible en la fila */
+        margin: 10px 0; /* Espacio vertical */
+        max-width: none; /* Eliminar el max-width para que ocupe el 100% */
+    }
+
+    .search-bar input {
+        padding: 8px 15px; /* Mantener un buen padding */
+        font-size: 0.95rem; /* Ajustar tamaño de fuente */
+        border-radius: 20px; /* Bordes redondos completos */
+    }
+
+    .search-bar button {
+        display: none; /* Ocultar el botón de búsqueda para ahorrar espacio */
+    }
+
+    .main-nav {
+        order: 2; /* Navegación (con hamburguesa) */
+        flex-basis: auto; /* Restablecer */
+        margin-left: auto; /* Empuja a la derecha, al lado del carrito si hay espacio */
+    }
+
+    .hamburger {
+        display: block; /* Mostrar ícono de hamburguesa en pantallas pequeñas */
+        color: #fff;
+        margin-left: 5px;
+        font-size: 1.5rem;
+    }
+
+    .main-nav .nav-links {
+        display: none; /* Ocultar enlaces de navegación por defecto en pantallas pequeñas */
+        flex-direction: column; /* Apila los enlaces verticalmente */
+        width: 100%;
+        background-color: #dc3545;
+        position: absolute; /* Saca el menú del flujo normal del documento */
+        top: 60px; /* Ajustar según la altura de tu header móvil */
+        left: 0;
+        padding: 10px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000; /* Asegura que esté por encima del overlay */
+        text-align: left; /* Alineación de texto para el menú desplegable */
+    }
+
+    .main-nav .nav-links.active {
+        display: flex; /* Mostrar enlaces de navegación cuando está activo */
+    }
+
+    .main-nav .nav-links > li {
+        margin: 0;
+        width: 100%;
+    }
+
+    .main-nav .nav-links .nav-link-item {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .main-nav .nav-links > li:last-child .nav-link-item {
+        border-bottom: none;
+    }
+
+    /* Submenú en móvil */
+    .submenu {
+        position: static;
+        background-color: #b02a37;
+        box-shadow: none;
+        width: 100%;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .submenu.open {
+        max-height: 500px;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+
+    .submenu li a {
+        padding: 10px 30px;
+    }
+
+    .cart-icon {
+        order: 4; /* Carrito al final */
+        margin-left: 10px; /* Espacio a la derecha del hamburger */
+        font-size: 1.3rem;
+    }
+
+    .hero-image-container {
+        height: 300px;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .arrow {
+        font-size: 1.5rem;
+        padding: 5px 10px;
+    }
+
+    .left-arrow {
+        left: 10px;
+    }
+
+    .right-arrow {
+        right: 10px;
+    }
+
+    .info-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-card {
+        max-width: 90%;
+        margin-bottom: 20px;
+    }
+
+    /* Responsive para el Footer */
+    .footer-content-wrapper {
+        flex-direction: column; /* Apilar columnas en pantallas pequeñas */
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-brand {
+        align-items: center;
+        min-width: unset;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .footer-links-group {
+        flex-direction: column; /* Apilar las columnas de enlaces en móvil */
+        align-items: center;
+        width: 100%;
+        min-width: unset;
+    }
+
+    .footer-links-col {
+        min-width: unset;
+        width: 100%;
+        margin-bottom: 30px;
+        margin-right: 0; /* Eliminar el margen derecho en móvil */
+    }
+
+    .footer-links-col h3 {
+        text-align: center;
+    }
+
+    .footer-links-col h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-links-col ul {
+        padding: 0;
+    }
+
+    .footer-links-col ul li {
+        justify-content: center;
+    }
+}
+
+/* Medium screens (e.g., tablets) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .main-nav .nav-links {
+        display: flex; /* Mostrar enlaces de navegación en pantallas medianas */
+    }
+
+    .hamburger {
+        display: none; /* Ocultar hamburguesa */
+    }
+
+    .header-content {
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    .search-bar {
+        margin: 0 15px;
+    }
+
+    .info-card {
+        max-width: 48%; /* Ajustar para dos tarjetas por fila */
+    }
+
+    /* Footer en tablets: Asegurar que las 3 columnas principales se vean bien */
+    .footer-content-wrapper {
+        justify-content: space-around;
+        gap: 20px; /* Menos espacio entre columnas en tablets */
+    }
+
+    .footer-brand {
+        min-width: 200px; /* Permite que sea un poco más pequeño */
+    }
+
+    .footer-links-group {
+        min-width: 380px; /* Asegura que las dos columnas de categorías puedan caber */
+        justify-content: flex-start; /* Alinea al inicio */
+    }
+
+    .footer-links-col {
+        min-width: 150px; /* Reducir el min-width de las columnas de enlace */
+        margin-right: 20px; /* Ajustar el margen entre columnas */
+    }
+}
+
+/* Large screens (desktop) */
+@media (min-width: 1025px) {
+    .main-nav .nav-links {
+        display: flex !important; /* Asegurar que los enlaces de navegación siempre sean visibles en pantallas grandes */
+    }
+
+    .hamburger {
+        display: none; /* Ocultar hamburguesa en pantallas grandes */
+    }
+    /* No hay reglas :hover para el submenú aquí, solo se controla por JS (click) */
+
+    /* Asegurar que las columnas del footer se mantengan en línea en escritorio */
+    .footer-links-group {
+        min-width: 450px; /* Aumentar si las columnas se siguen apilando prematuramente */
+        /* Asegurarse de que no haya un 'flex-direction: column' aquí */
+        flex-direction: row; /* Asegurar que siempre sea fila en desktop */
+        justify-content: flex-start; /* Alinea al inicio para compactar las columnas de categorías */
+    }
+
+    .footer-links-col {
+        flex: 0 0 auto; /* Asegura que cada columna tenga el ancho de su contenido */
+        min-width: 180px; /* Mantener ancho mínimo para legibilidad */
+        margin-right: 30px; /* Espacio explícito entre columnas */
+    }
+    .footer-links-col:last-child {
+        margin-right: 0;
+    }
+}

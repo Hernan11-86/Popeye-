@@ -1,0 +1,94 @@
+/*
+ * CSS ESPECÍFICO PARA LA PÁGINA "NOSOTROS" (nosotros.html)
+ * Este archivo complementa el style.css principal, que maneja el header, overlay, info-section, etc.
+ */
+
+/* Estilos para el título de la página (similar a otras páginas de categoría) */
+.page-title-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.page-title-section h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+/* Sección principal "Sobre Nosotros" */
+.about-us-section {
+    display: flex; /* Habilita Flexbox para colocar imagen y texto en línea */
+    flex-direction: row; /* Los elementos se alinearán en una fila por defecto (escritorio) */
+    align-items: center; /* Alinea los ítems verticalmente al centro dentro del contenedor flex */
+    gap: 40px; /* Espacio entre la imagen y el texto */
+    max-width: 1200px; /* Ancho máximo del contenedor para centrarlo */
+    margin: 40px auto; /* Centra la sección horizontalmente y añade margen vertical */
+    padding: 30px 20px; /* Espaciado interno */
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.about-us-image {
+    flex: 1; /* Permite que este elemento crezca y se encoja dentro del flex container */
+    min-width: 300px; /* Ancho mínimo para la imagen antes de que la disposición cambie */
+    text-align: center; /* Centra la imagen si su tamaño real es menor que el contenedor flex */
+}
+
+.about-us-image img {
+    max-width: 100%; /* Asegura que la imagen no se desborde de su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 8px; /* Bordes redondeados para la imagen */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para la imagen */
+}
+
+.about-us-text {
+    flex: 2; /* Permite que este elemento ocupe el doble de espacio que la imagen */
+    padding: 0 10px; /* Pequeño padding interno para el texto */
+}
+
+.about-us-text h2 {
+    font-size: 2rem;
+    color: #dc3545; /* Rojo de tu marca */
+    margin-bottom: 15px;
+}
+
+.about-us-text p {
+    font-size: 1.1rem;
+    line-height: 1.8; /* Mayor interlineado para mejor legibilidad */
+    color: #555;
+    margin-bottom: 15px; /* Espacio entre párrafos */
+}
+
+/* Responsive Design para la sección "Nosotros" */
+@media (max-width: 768px) {
+    .about-us-section {
+        flex-direction: column; /* Apila la imagen y el texto verticalmente en pantallas pequeñas */
+        text-align: center; /* Centra el texto cuando está apilado */
+        padding: 20px 15px; /* Reduce el padding en móvil */
+        gap: 20px; /* Reduce el espacio entre elementos apilados */
+    }
+
+    .about-us-image {
+        min-width: unset; /* Elimina el min-width para permitir que se adapte mejor en móvil */
+        width: 100%; /* La imagen ocupará todo el ancho disponible */
+    }
+
+    .about-us-image img {
+        max-width: 80%; /* Reduce el tamaño de la imagen para que no sea demasiado grande en móvil */
+    }
+
+    .about-us-text {
+        padding: 0; /* Sin padding lateral extra en móvil para que el texto ocupe más ancho */
+    }
+
+    .about-us-text h2 {
+        font-size: 1.6rem; /* Reduce el tamaño del título en móvil */
+    }
+
+    .about-us-text p {
+        font-size: 1rem; /* Reduce el tamaño del texto del párrafo en móvil */
+    }
+}
